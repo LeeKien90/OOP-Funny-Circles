@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas height="700" id="myCanvas" style="border: 3px solid red; display: block; margin-left: 25%" width="875"></canvas>
+<script>
+//     class HinhChuNhat {
+//
+//         left;
+//         top;
+//         weight;
+//         hight;
+//
+//         constructor(left, top, weight, hight) {
+//             this._left = left;
+//             this._top = top;
+//             this._weight = weight;
+//             this._hight = hight;
+//         }
+//
+//         getLeft() {
+//             return this.left;
+//         }
+//
+//         setLeft(left) {
+//             this.left = left;
+//         }
+//
+//         getTop() {
+//             return this.top;
+//         }
+//
+//         setTop(top) {
+//             this.top = top;
+//         }
+//
+//         getWeight() {
+//             return this.weight;
+//         }
+//
+//         setWeight(weight) {
+//             this.weight = weight;
+//         }
+//
+//         getHight() {
+//             return this.hight;
+//         }
+//
+//         setHight(hight) {
+//             this.hight = hight;
+//         }
+//     }
+
+//     let canvas = document.getElementById('myCanvas');
+//     let ctx = canvas.getContext('2d');
+//     for (let i = 1; i < 5; i++) {
+//         for (let j = 1; j < 4; j++) {
+//             ctx.beginPath()
+//             ctx.fillStyle ='black'
+//             ctx.fillRect(150*i, 100*j, 120, 40);
+//             ctx.closePath()
+//         }
+//
+//     }
+// ctx.beginPath()
+// ctx.fillStyle ='black'
+// ctx.fillRect(337.5, 660, 200, 40);
+// ctx.closePath()
+//
+// ctx.beginPath();
+// ctx.strokeStyle = 'blue';
+// ctx.fillStyle = 'red';
+// ctx.arc(440, 630, 30 , 0, 2*Math.PI, true);
+// ctx.fill()
+// ctx.stroke()
+// ctx.closePath()
+
+class Rectangle {
+    x;
+    y;
+    width;
+    height;
+    color;
+
+    constructor(x, y, width, height, color) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+    drawRect(ctx){
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x,this.y,this.width,this.height)
+        ctx.fill();
+        ctx.closePath()
+    }
+}
+
+let canvas = document.getElementById('myCanvas');
+let ctx = canvas.getContext('2d');
+let widthCanvas = canvas.width;
+console.log('widthCanvas --> ', widthCanvas)
+let heightCanvas = canvas.height;
+//Ve Bricks
+let column = 5;
+let row = 4;
+let widthB = 100;
+let heightB = 30;
+let betweenB = 20;
+let topDownB = 15;
+let colorB = 'blue'
+let leftMargin = (widthCanvas - (column*widthB+(column-1)*betweenB))/2;
+console.log('check tong == ', leftMargin)
+let topMargin = 100;
+for (let i=0;i<row;i++){
+    for (let j=0;j<column;j++){
+        let brickX = leftMargin + j*(widthB+betweenB);
+        let brickY = topMargin + i*(heightB+topDownB);
+        let brick = new Rectangle(brickX,brickY,widthB,heightB, colorB);
+        brick.drawRect(ctx)
+    }
+}
+ctx.beginPath()
+ctx.fillStyle ='black'
+ctx.fillRect(337.5, 660, 200, 40);
+ctx.closePath()
+
+ctx.beginPath();
+ctx.strokeStyle = 'blue';
+ctx.fillStyle = 'red';
+ctx.arc(440, 630, 30 , 0, 2*Math.PI, true);
+ctx.fill()
+ctx.stroke()
+ctx.closePath()
+
+</script>
+</body>
+</html>

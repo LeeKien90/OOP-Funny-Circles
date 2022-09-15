@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="500" style="border: 1px solid red"></canvas>
+<script>
+    let canvas =document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
+    console.log('width ======', canvas.width);
+    console.log('height ======', canvas.height);
+    //vẽ hình tròn
+    ctx.beginPath();
+    ctx.strokeStyle = 'blue';
+    ctx.fillStyle = 'red';
+    ctx.arc(400, 250, 100, 0, 2*Math.PI, true);
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
+
+    //vẽ hình vuông
+    ctx.beginPath()
+    ctx.strokeRect(350, 200, 100, 100);
+    ctx.closePath()
+
+    // vẽ text
+    ctx.beginPath()
+    ctx.font = '50px Arial Black'
+    ctx.fillStyle = 'blue'
+    ctx.fillText('JV082022',500,50)
+    ctx.fill()
+    ctx.closePath()
+
+    //vẽ image
+    let image = new Image();
+    image.src = '1.jpg';
+    image.onload = drawImage;
+    function drawImage() {
+        ctx.drawImage(this, 550,300,250,200)
+    }
+    //  let a = {
+   //      name: 'mai',
+   //      id: 1
+   //  }
+   //  let b = JSON.parse(JSON.stringify(a))
+   // // b={...a} // clone opject của a ( tức là tạo ra bộ nhớ các giá trị đầu tiên của opject )
+   //  a.name = 'mai gấu'
+   //  console.log(b.name)
+   //  a.id = 2
+   //  console.log(b.id)
+//let nums = [2,7,11,15];
+//let output = [0,1];
+//let taget = 9;
+
+// const twoSum = function (nums, taget) {
+//     for (let i = 0; i < nums.length; i++) {
+//         for (let j = i+1; j < nums.length; j++){
+//             if (nums[i] + nums[j] == taget) {
+//                 return document.write(`${nums[j]} + ${nums[i]} = ${taget}`)
+//                 //return [i,j]
+//             }
+//         }
+//     }
+// }
+//
+//    console.log(twoSum([2,4,5,8,11,7], 10))
+
+
+//    class Students {
+//        id;
+//        name;
+//        age;
+//        address;
+// //Constructor là phương thức khởi tạo - nó là thể hiện của 1 class
+//        constructor(id, name, age, address) {
+//            this.id = id;
+//            this.name = name;
+//            this.age = age;
+//            this.address = address;
+//        }
+//        //Hàm set là hàm không trả về -hàm này có nhiệm vụ set lại thuộc tính khi mà cần update object
+//        setId(id) {
+//            this.id = id;
+//        }
+//        //hàm get là hàm có dữ liệu trả về. Hàm dùng để lấy ra thông tin của object
+//        getId() {
+//            return this.id
+//        }
+//    }
+    // Khối tạo đối tượng của class student
+//    let student1 = new Students(1, 'Minh', 22, 'Bac Ninh');
+  //  console.log('student1 ======', student1)
+
+</script>
+</body>
+</html>
